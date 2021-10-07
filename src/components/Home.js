@@ -9,7 +9,7 @@ export default function Home() {
       count === 10 ? setCount(1) : setCount(count=>count + 1)
       console.log(count);
     }, 3000);
-  },[])
+  })
   return (
     <div className="home">
       <div className="home-tagline">

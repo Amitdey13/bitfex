@@ -13,6 +13,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+// eslint-disable-next-line
 const analytics = getAnalytics(app);
 
 const provider = new GoogleAuthProvider();
@@ -21,17 +22,22 @@ const auth = getAuth(app);
 const signIn = () => {
     signInWithPopup(auth, provider)
     .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        const user = result.user;
-        console.log(user);
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      // eslint-disable-next-line
+      const token = credential.accessToken;
+      const user = result.user;
+      console.log(user);
     })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
-    });
+        .catch((error) => {
+          // eslint-disable-next-line
+          const errorCode = error.code;
+          // eslint-disable-next-line
+          const errorMessage = error.message;
+          // eslint-disable-next-line
+          const email = error.email;
+          // eslint-disable-next-line
+          const credential = GoogleAuthProvider.credentialFromError(error);
+        });
 }
 
 export default signIn;
